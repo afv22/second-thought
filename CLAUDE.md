@@ -8,5 +8,3 @@ A scope is optional: `fix(options): <message>`, `feat(logger): <message>`.
 
 ### Publishing
 Publishing is automated via GitHub Actions. On push to `main`, release-please opens a release PR that bumps the version in `manifest.json` and updates the changelog. Merging that PR triggers the publish job, which bundles the extension and uploads it to AMO as an unlisted addon. Do not manually update the version number in manifest.json.
-
-When adding or removing extension source files, update the bundle file list in `.github/workflows/publish.yml`.
