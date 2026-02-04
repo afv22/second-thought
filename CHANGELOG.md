@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/afv22-projects/second-thought/compare/v1.4.1...v1.4.2) (2026-02-04)
+
+
+### Bug Fixes
+
+* Pass release-please changes to addon release-notes ([1fdee28](https://github.com/afv22-projects/second-thought/commit/1fdee2806bb45ff8f10b1556c2cb3cdd60270758))
+
 ## [1.4.1](https://github.com/afv22-projects/second-thought/compare/v1.4.0...v1.4.1) (2026-02-04)
 
 
