@@ -17,6 +17,7 @@ jobs:
     with:
       addon-id: site-access-logger@avagliano.me
       tag-name: ${{ needs.release-please.outputs.tag-name }}
+      release-note: ${{ needs.release-please.outputs.body }}
     secrets:
       amo-api-key: ${{ vars.AMO_API_KEY }}
       amo-api-secret: ${{ secrets.AMO_API_SECRET }}
