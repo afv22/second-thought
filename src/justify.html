@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Access Logger - Justification Required</title>
+  <link rel="stylesheet" href="justify.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Justification Required</h1>
+    <p>You're about to visit <span id="domain" class="domain"></span></p>
+    <p>Please provide a reason for this visit:</p>
+    <textarea id="reason" placeholder="Why are you visiting this site?"></textarea>
+    <div id="charCount" class="char-count">0 / 20 characters</div>
+    <button id="submit" disabled>Continue to Site</button>
+  </div>
+  <script src="logger.js"></script>
+  <script src="justify.js"></script>
+</body>
+</html>
