@@ -21,11 +21,11 @@
     "default_title": "Second Thought"
   },
   "options_ui": {
-    "page": "src/options.html",
+    "page": "src/options_page/options.html",
     "open_in_tab": true
   },
   "web_accessible_resources": [
-    "src/justify.html"
+    "src/justify_page/justify.html"
   ],
   "browser_specific_settings": {
     "gecko": {
