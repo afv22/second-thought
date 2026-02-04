@@ -2,7 +2,13 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "extra-files": ["manifest.json"]
+      "extra-files": [
+        {
+          "type": "json",
+          "path": "manifest.json",
+          "jsonpath": "$.version"
+        }
+      ]
     }
   }
 }
