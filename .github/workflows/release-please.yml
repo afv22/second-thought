@@ -9,3 +9,14 @@ jobs:
   release-please:
     uses: afv22-projects/.github/.github/workflows/release-please.yml@main
     secrets: inherit
+
+  publish:
+    needs: release-please
+    if: needs.release-please.outputs.release-created == 'true'
+    uses: afv22-projects/.github/.github/workflows/publish-firefox-addon.yml@main
+    with:
+      addon-id: site-access-logger@avagliano.me
+      tag-name: ${{ needs.release-please.outputs.tag-name }}
+    secrets:
+      amo-api-key: ${{ vars.AMO_API_KEY }}
+      amo-api-secret: ${{ secrets.AMO_API_SECRET }}
