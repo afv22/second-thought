@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Second Thought",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Requires justification before accessing specified websites and logs access with timestamps",
   "permissions": [
     "webRequest",

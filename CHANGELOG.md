@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/afv22-projects/second-thought/compare/v1.4.0...v1.4.1) (2026-02-04)
+
+
+### Bug Fixes
+
+* Organize page files into subdirectories ([1b59faf](https://github.com/afv22-projects/second-thought/commit/1b59fafd9e3192db573ed97afba711209e278e92))
+
 ## [1.4.0](https://github.com/afv22-projects/second-thought/compare/v1.3.0...v1.4.0) (2026-02-04)
 
 
