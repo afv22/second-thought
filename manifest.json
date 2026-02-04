@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "Site Access Logger",
+  "name": "Second Thought",
   "version": "1.3.0",
   "description": "Requires justification before accessing specified websites and logs access with timestamps",
   "permissions": [
@@ -16,7 +16,7 @@
     "persistent": true
   },
   "browser_action": {
-    "default_title": "Site Access Logger"
+    "default_title": "Second Thought"
   },
   "options_ui": {
     "page": "src/options.html",
