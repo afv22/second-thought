@@ -7,7 +7,6 @@ const sessionDurationInput = document.getElementById("sessionDuration");
 const domainsList = document.getElementById("domainsList");
 const newDomainInput = document.getElementById("newDomain");
 const addDomainButton = document.getElementById("addDomain");
-const serverUrlInput = document.getElementById("serverUrl");
 const status = document.getElementById("status");
 
 let domains = [];
@@ -22,7 +21,6 @@ async function loadSettings() {
   subdomainWhitelist = settings.subdomainWhitelist || {};
   subdirectoryWhitelist = settings.subdirectoryWhitelist || {};
   sessionDurationInput.value = settings.sessionDuration || DEFAULT_SESSION_DURATION;
-  serverUrlInput.value = settings.serverUrl || "http://localhost:5000";
 
   renderDomains();
 }
@@ -34,7 +32,6 @@ async function saveSettings() {
       subdomainWhitelist,
       subdirectoryWhitelist,
       sessionDuration: parseInt(sessionDurationInput.value, 10),
-      serverUrl: serverUrlInput.value.trim(),
     },
   });
   showStatus("Settings saved");
@@ -330,7 +327,6 @@ function showStatus(message) {
 
 // Event listeners
 sessionDurationInput.addEventListener("change", saveSettings);
-serverUrlInput.addEventListener("change", saveSettings);
 addDomainButton.addEventListener("click", addDomain);
 newDomainInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") addDomain();
