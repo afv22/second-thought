@@ -12,9 +12,7 @@
     "https://*/*"
   ],
   "background": {
-    "scripts": [
-      "src/background.js"
-    ],
+    "scripts": ["src/background.js"],
     "persistent": true
   },
   "browser_action": {
@@ -24,16 +22,12 @@
     "page": "src/options_page/options.html",
     "open_in_tab": true
   },
-  "web_accessible_resources": [
-    "src/justify_page/justify.html"
-  ],
+  "web_accessible_resources": ["src/justify_page/justify.html"],
   "browser_specific_settings": {
     "gecko": {
       "id": "site-access-logger@avagliano.me",
       "data_collection_permissions": {
-        "required": [
-          "browsingActivity"
-        ]
+        "required": ["browsingActivity"]
       }
     }
   }

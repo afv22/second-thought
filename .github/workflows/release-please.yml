@@ -8,6 +8,8 @@ on:
 jobs:
   release-please:
     uses: afv22-projects/.github/.github/workflows/release-please.yml@main
+    with:
+      release-type: node
 
   publish:
     needs: release-please
