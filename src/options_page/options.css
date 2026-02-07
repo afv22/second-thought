@@ -199,3 +199,41 @@ input[type="url"] {
   background: #d4edda;
   color: #155724;
 }
+.log-actions {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.log-actions h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 18px;
+}
+.log-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+  flex: 0 0 auto;
+  min-width: 140px;
+}
+#downloadLogs {
+  background: #0066cc;
+  color: white;
+}
+#downloadLogs:hover {
+  background: #0052a3;
+}
+#clearLogs {
+  background: #dc3545;
+  color: white;
+}
+#clearLogs:hover {
+  background: #c82333;
+}

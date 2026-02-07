@@ -8,6 +8,8 @@ const domainsList = document.getElementById("domainsList");
 const newDomainInput = document.getElementById("newDomain");
 const addDomainButton = document.getElementById("addDomain");
 const status = document.getElementById("status");
+const downloadLogsButton = document.getElementById("downloadLogs");
+const clearLogsButton = document.getElementById("clearLogs");
 
 let domains = [];
 let subdomainWhitelist = {};
@@ -325,9 +327,51 @@ function showStatus(message) {
   }, 2000);
 }
 
+async function downloadLogs() {
+  const data = await browser.storage.local.get("logs");
+  const logs = data.logs || [];
+
+  if (logs.length === 0) {
+    showStatus("No logs to download");
+    return;
+  }
+
+  const jsonString = JSON.stringify(logs, null, 2);
+  const blob = new Blob([jsonString], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const filename = `site-access-logs-${timestamp}.json`;
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+
+  URL.revokeObjectURL(url);
+  showStatus(`Downloaded ${logs.length} log entries`);
+}
+
+async function handleClearLogs() {
+  const data = await browser.storage.local.get("logs");
+  const logs = data.logs || [];
+
+  if (logs.length === 0) {
+    showStatus("No logs to clear");
+    return;
+  }
+
+  if (confirm(`Are you sure you want to clear all ${logs.length} log entries? This cannot be undone.`)) {
+    await clearLogs();
+    showStatus("Logs cleared");
+  }
+}
+
 // Event listeners
 sessionDurationInput.addEventListener("change", saveSettings);
 addDomainButton.addEventListener("click", addDomain);
+downloadLogsButton.addEventListener("click", downloadLogs);
+clearLogsButton.addEventListener("click", handleClearLogs);
 newDomainInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") addDomain();
 });
