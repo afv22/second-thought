@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/afv22-projects/second-thought/compare/v1.5.0...v1.6.0) (2026-05-21)
+
+
+### Features
+
+* update extension name in tabs and comments ([6f3af19](https://github.com/afv22-projects/second-thought/commit/6f3af190d7ba6c112049f31f7a8f25246f4bcd79))
+
 ## [1.5.0](https://github.com/afv22-projects/second-thought/compare/v1.4.2...v1.5.0) (2026-02-07)
 
 
