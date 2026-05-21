@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.0](https://github.com/afv22-projects/second-thought/compare/v1.4.2...v1.5.0) (2026-02-07)
+
+
+### Features
+
+* Add buttons to download and clear logs ([223fdd5](https://github.com/afv22-projects/second-thought/commit/223fdd5337c8cebc98bc95f45fae810a29767be7))
+* Deprecate external backup ([3853a3f](https://github.com/afv22-projects/second-thought/commit/3853a3fce4fbe47236721043f4f90fe0b21afaae))
+
+
+### Reverts
+
+* Revert workflow migration to restore release-please config ([5a72d1b](https://github.com/afv22-projects/second-thought/commit/5a72d1be2d14e77aef7812157c4a3b834f04aa9e))
+
 ## [1.4.2](https://github.com/afv22-projects/second-thought/compare/v1.4.1...v1.4.2) (2026-02-04)
 
 
