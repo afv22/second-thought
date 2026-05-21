@@ -1,4 +1,4 @@
-// Site Access Logger - Background Script
+// Second Thought - Background Script
 // Handles request interception and session management
 
 const DEFAULT_DOMAINS = ["reddit.com", "nytimes.com", "wsj.com"];
@@ -136,7 +136,7 @@ async function initializeExtension() {
     ["blocking"]
   );
 
-  console.log("Site Access Logger initialized");
+  console.log("Second Thought initialized");
 }
 
 // Clean expired sessions periodically (every minute)

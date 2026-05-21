@@ -1,4 +1,4 @@
-// Site Access Logger - Justification Page Logic
+// Second Thought - Justification Page Logic
 
 const MIN_REASON_LENGTH = 50;
 const DEFAULT_SESSION_DURATION = 15;

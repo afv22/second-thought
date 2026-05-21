@@ -1,4 +1,4 @@
-// Site Access Logger - Options Page
+// Second Thought - Options Page
 
 const DEFAULT_DOMAINS = ["reddit.com", "nytimes.com", "wsj.com"];
 const DEFAULT_SESSION_DURATION = 15;

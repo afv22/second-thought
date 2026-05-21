@@ -1,4 +1,4 @@
-// Site Access Logger - Logging Utilities
+// Second Thought - Logging Utilities
 
 /**
  * Clear all logs from local storage
