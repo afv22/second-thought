@@ -8,10 +8,26 @@ const charCount = document.getElementById("charCount");
 const submitButton = document.getElementById("submit");
 const domainSpan = document.getElementById("domain");
 
+/**
+ * Extract the original URL from the query string. It is always the last
+ * parameter. Firefox's background script URL-encodes it, but Chrome's
+ * declarativeNetRequest substitution passes it through raw — so it may
+ * contain unencoded "&" and "=" and can't be read with URLSearchParams.
+ */
+function getTargetUrl() {
+  const search = window.location.search;
+  const marker = "&url=";
+  const index = search.indexOf(marker);
+  if (index === -1) return null;
+  const raw = search.slice(index + marker.length);
+  // An encoded URL never contains "://" ("https%3A%2F%2F..."); a raw one always does.
+  return raw.includes("://") ? raw : decodeURIComponent(raw);
+}
+
 // Parse URL parameters
 const params = new URLSearchParams(window.location.search);
 const targetDomain = params.get("domain");
-const targetUrl = params.get("url");
+const targetUrl = getTargetUrl();
 
 let sessionDurationMinutes = DEFAULT_SESSION_DURATION;
 

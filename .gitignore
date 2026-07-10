@@ -1,2 +1,4 @@
 *.zip
 .env
+docs/
+dist/

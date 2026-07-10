@@ -86,7 +86,7 @@ function onBeforeRequest(details) {
 
   // Redirect to justification page
   const redirectUrl =
-    browser.runtime.getURL("src/justify_page/justify.html") +
+    browser.runtime.getURL("shared/justify_page/justify.html") +
     "?domain=" +
     encodeURIComponent(domain) +
     "&url=" +

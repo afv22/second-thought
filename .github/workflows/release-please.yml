@@ -16,6 +16,8 @@ jobs:
     with:
       tag-name: ${{ needs.release-please.outputs.tag-name }}
       release-note: ${{ needs.release-please.outputs.body }}
+      build-command: ./build.sh
+      source-dir: dist/firefox
     secrets:
       amo-api-key: ${{ vars.AMO_API_KEY }}
       amo-api-secret: ${{ secrets.AMO_API_SECRET }}

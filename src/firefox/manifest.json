@@ -12,28 +12,22 @@
     "https://*/*"
   ],
   "background": {
-    "scripts": [
-      "src/background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": true
   },
   "browser_action": {
     "default_title": "Second Thought"
   },
   "options_ui": {
-    "page": "src/options_page/options.html",
+    "page": "shared/options_page/options.html",
     "open_in_tab": true
   },
-  "web_accessible_resources": [
-    "src/justify_page/justify.html"
-  ],
+  "web_accessible_resources": ["shared/justify_page/justify.html"],
   "browser_specific_settings": {
     "gecko": {
       "id": "site-access-logger@avagliano.me",
       "data_collection_permissions": {
-        "required": [
-          "browsingActivity"
-        ]
+        "required": ["browsingActivity"]
       }
     }
   }

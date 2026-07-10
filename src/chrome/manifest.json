@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Second Thought",
+  "version": "1.5.0",
+  "description": "Requires justification before accessing specified websites and logs access with timestamps",
+  "permissions": ["declarativeNetRequest", "storage", "alarms"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Second Thought"
+  },
+  "options_ui": {
+    "page": "shared/options_page/options.html",
+    "open_in_tab": true
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["shared/justify_page/justify.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
