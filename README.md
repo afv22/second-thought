@@ -10,7 +10,12 @@ I developed a bad habit of semi-consciously opening distracting sites like Reddi
 
 A simple, configurable blocklist of sites is maintained. When the browser attempts to navigate to one of them, the user is instead directed to a page to enter a 50+ character reason. Once provided, the user continues through. The block resets after a default 15 minutes.
 
-This design is not intended to be a strong block, but a way to add friction in an ecosystem designed to hook the user. I've been personally using this for nearly a year and it has been very effective at forcing me to give my browsing habits a second thought.
+<p align="center">
+  <img src="static/justification-page.png" alt="Justification page" width="500">
+</p>
+
+
+This design is not intended to be a strong block, but a way to add friction in an ecosystem designed to hook the user. Personally, this solution has been very effective at forcing me to give my browsing habits a second thought.
 
 ## Building
 
