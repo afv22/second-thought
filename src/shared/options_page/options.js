@@ -248,7 +248,7 @@ function renderSubdirectoryPanel(panel, domain) {
 function addSubdirectoryWhitelist(domain) {
   const panel = document.getElementById("subdirectory-panel-" + domain);
   const input = panel.querySelector(".add-subdirectory input");
-  let subdirectory = input.value.trim().toLowerCase();
+  let subdirectory = input.value.trim();
   if (!subdirectory) return;
 
   // Ensure it starts with /
@@ -270,7 +270,11 @@ function addSubdirectoryWhitelist(domain) {
     subdirectoryWhitelist[domain] = [];
   }
 
-  if (subdirectoryWhitelist[domain].includes(subdirectory)) {
+  if (
+    subdirectoryWhitelist[domain].some(
+      (d) => d.toLowerCase() === subdirectory.toLowerCase()
+    )
+  ) {
     showStatus("Subdirectory already whitelisted");
     return;
   }

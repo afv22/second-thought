@@ -48,12 +48,13 @@ function isWhitelistedSubdomain(url, baseDomain) {
  * Check if a URL's pathname matches a whitelisted subdirectory
  */
 function isWhitelistedSubdirectory(url, baseDomain) {
-  const pathname = new URL(url).pathname;
+  const pathname = new URL(url).pathname.toLowerCase();
   const whitelist = subdirectoryWhitelist[baseDomain];
   if (!whitelist || whitelist.length === 0) return false;
-  return whitelist.some(
-    (dir) => pathname === dir || pathname.startsWith(dir + "/")
-  );
+  return whitelist.some((entry) => {
+    const dir = entry.toLowerCase();
+    return pathname === dir || pathname.startsWith(dir + "/");
+  });
 }
 
 /**
