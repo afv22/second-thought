@@ -1,0 +1,71 @@
+name: Publish Firefox Addon
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Publish even if the manifest version is unchanged
+        type: boolean
+        default: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # HEAD^ is needed to tell whether this push bumped the version.
+          fetch-depth: 2
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check for a version bump
+        id: check
+        run: |
+          read_version() { node -p "JSON.parse(require('fs').readFileSync(0, 'utf8')).version"; }
+
+          version=$(read_version < src/firefox/manifest.json)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "Forced publish of $version"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          previous=$(git show HEAD^:src/firefox/manifest.json 2>/dev/null | read_version 2>/dev/null || echo "")
+
+          if [ "$version" = "$previous" ]; then
+            echo "Version unchanged at $version, nothing to publish."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Version bumped ${previous:-none} -> $version"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        if: steps.check.outputs.changed == 'true'
+        run: ./build.sh
+
+      - name: Sign and upload to AMO
+        if: steps.check.outputs.changed == 'true'
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
+        run: |
+          npx --yes web-ext@8 sign \
+            --source-dir dist/firefox \
+            --artifacts-dir dist/artifacts \
+            --channel unlisted \
+            --no-input
+
+      - uses: actions/upload-artifact@v3
+        if: steps.check.outputs.changed == 'true'
+        with:
+          name: second-thought-${{ steps.check.outputs.version }}
+          path: dist/artifacts/*.xpi
